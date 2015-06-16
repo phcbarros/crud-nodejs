@@ -1,0 +1,28 @@
+{
+  "name": "crud-nodejs",
+  "version": "0.0.1",
+  "description": "Workshop construindo uma API Rest com ExpressJS - NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phcbarros/crud-nodejs.git"
+  },
+  "author": "Paulo Barros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phcbarros/crud-nodejs/issues"
+  },
+  "homepage": "https://github.com/phcbarros/crud-nodejs",
+  "dependencies": {
+    "bluebird": "^2.9.30",
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "method-override": "^2.3.3",
+    "mongojs": "^1.0.0",
+    "mysql": "^2.7.0"
+  }
+}
