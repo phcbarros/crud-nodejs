@@ -16,6 +16,12 @@ app.use(methodOverride('_method'));
 //rotas
 app.use('/',routes);
 
+//erro
+app.use(function(err, req, res, next){
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 var server = app.listen(3000, function(){
   var host = server.address().address;
   var port = server.address().port;

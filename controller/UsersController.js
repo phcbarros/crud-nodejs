@@ -13,10 +13,10 @@ UsersController.prototype.create = function(req,res){
 
 	this.Model.createAsync(id, data)
 		.then(function(result){
-			res.json(result);	
+			res.status(201).json(result);	
 		})
 		.catch(function(err){
-			console.log('err', err);
+			res.status(400).send('Ocorreu um erro na sua requisição');
 		});	
 };
 
@@ -25,10 +25,10 @@ UsersController.prototype.findAll= function (req, res) {
 	
 	this.Model.findAllAsync()
 		.then(function(result){
-			res.json(result);	
+			res.status(200).json(result);	
 		})
 		.catch(function(err){
-			console.log('err', err);
+			res.status(400).send('Ocorreu um erro na sua requisição');
 		});
 };
 
@@ -39,10 +39,10 @@ UsersController.prototype.findOne = function(req,res){
 	
 	this.Model.findOneAsync(id)
 		.then(function(result){
-			res.json(result);	
+			res.status(200).json(result);	
 		})
 		.catch(function(err){
-			console.log('err', err);
+			res.status(400).send('Ocorreu um erro na sua requisição');
 		});	
 };
 
@@ -53,10 +53,15 @@ UsersController.prototype.update = function(req,res){
 		
 	this.Model.updateAsync(id, data)
 		.then(function(result){
-			res.json(result);	
+			var status = 200;
+			if(!result)
+				status = 304; //Not Modified
+				
+			res.status(status).json(data);
 		})
 		.catch(function(err){
 			console.log('err', err);
+			res.status(400).send('Ocorreu um erro na sua requisição');
 		});	
 };
 
@@ -66,10 +71,10 @@ UsersController.prototype.delete = function(req,res){
 	
 	this.Model.deleteAsync(id)
 		.then(function(result){
-			res.json(result);	
+			res.status(200).json(result);	
 		})
 		.catch(function(err){
-			console.log('err', err);
+			res.status(400).send('Ocorreu um erro na sua requisição');
 		});	
 };
 
